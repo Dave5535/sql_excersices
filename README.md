@@ -5,3 +5,5 @@ Instructions for opening SQL file in MySQL Workbench.
 3. In menu bar select File -> Open SQL Script...  (or Shortcut CTRL+SHIFT+O)
 4. Browse for you exercise file.
 5. Start working through the exercises.
+
+work is in .idea/sql.work.sql
