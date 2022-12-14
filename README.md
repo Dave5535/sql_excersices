@@ -6,4 +6,4 @@ Instructions for opening SQL file in MySQL Workbench.
 4. Browse for you exercise file.
 5. Start working through the exercises.
 
-work is in .idea/sql.work.sql
+ work is in .idea/sql.work.sql
