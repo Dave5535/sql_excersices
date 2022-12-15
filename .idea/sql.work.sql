@@ -79,3 +79,41 @@ select CountryCode, count(CountryCode)
 from city
 group by CountryCode
 having count(CountryCode)> 200
+-- 12
+select CountryCode, count(CountryCode)
+from city
+group by CountryCode
+having count(CountryCode)>= 200
+Order by count(countrycode) Desc;
+-- 13
+select t.Language,t.CountryCode,Population<(500) and Population>(400)
+from countrylanguage t inner join city p
+ on p.CountryCode = t.CountryCode and Population<(500) and Population>(400);
+ -- 14
+ select Name,t.Language,t.CountryCode,Population<(600) and Population>(500)
+from countrylanguage t inner join city p
+ on Name = Name and p.CountryCode = t.CountryCode and Population<(600) and Population>(500);
+ -- 15
+SELECT c2.name FROM city c1,city c2
+WHERE c1.countrycode=c2.countrycode AND c1.population=122199;
+-- 16
+select c2.name from city c1,city c2 where c1.CountryCode=c2.CountryCode and c1.Population = 122199
+and c2.Population<> 122199;
+-- 17 c1 = list of city.name c2 used as filter and country c is conferming capital
+ SELECT c1.name FROM city c2,country c,city c1
+ WHERE c2.name="luanda" AND c2.id=c.capital AND c.code=c1.countrycode;
+ -- 18 cf and f are used as filters
+ select cn.name from city cn, country cc, country cf , city f
+ where f.name = 'Yaren'
+ and f.id = cf.Capital
+ and cf.Region = cc.Region
+ and cc.Capital =cn.id;
+ -- 19 distinct is used becaus many cities speak the same languages in the same region.
+ select distinct language from city cn, countrylanguage cl, country cc, country cf, city f
+ where f.name = 'Riga'
+ and f.CountryCode = cf.Code
+ and cf.Region = cc.Region
+ and cc.Code = cl.CountryCode;
+ -- 20 () can be a filter then that is being done first and get the number for the largest populated city
+ select Name from city tc
+ where tc.Population = (select max(Population) from city);
